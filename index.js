@@ -12,10 +12,10 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://heroku_829sx5ch:gii10potn0r8g5ncusohsgmvn@ds015899.mlab.com:15899/heroku_829sx5ch',
+  databaseURI: process.env.MONGOLAB_URI || 'mongodb://heroku_829sx5ch:gii10potn0r8g5ncusohsgmvn@ds015899.mlab.com:15899/heroku_829sx5ch',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || '6875F1E3C4D8394674182B1DB1F42',
-  fileKey: 'fcda5bcb-2405-4f56-849e-591a0b231eca',
+  fileKey: process.env.FILE_KEY || 'fcda5bcb-2405-4f56-849e-591a0b231eca',
   masterKey: process.env.MASTER_KEY || '92EC7CD7D74DADFB5666FBF598E22', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://bottles99.herokuapp.com/parse',  // Don't forget to change to https if needed
   liveQuery: {
